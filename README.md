@@ -87,3 +87,19 @@ This project demonstrates how to build a secure and scalable NGINX load balancer
 
 </br>![Screenshot (314)](https://github.com/user-attachments/assets/a41a5e6d-4443-4fa8-b821-ba6dcb372ab3)
 
+
+
+</br>4. Build the backend Docker image:
+
+</br> We will now build the backend Docker image utilizing the command..
+</br><i>cd backend (if not already there)
+</br>docker build -t backend-server . </i>
+
+</br> ***Note: Dont forget the period on the second command***
+
+</br>![Screenshot (316)](https://github.com/user-attachments/assets/60ce682b-88cc-4f91-a65a-6c81651cc587)
+
+</br![Screenshot (315)](https://github.com/user-attachments/assets/18766ae9-ecec-46ac-98ee-1167fb8e6197)
+
+
+
