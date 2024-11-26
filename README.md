@@ -184,7 +184,8 @@ This project demonstrates how to build a secure and scalable NGINX load balancer
 <h2>Deploy NGINX load Balancer</h2>
 </br>1. Add NGINX to the Docker Compose file. Navigate to the docker-compose.yml, nano into the file and write the following:
 
-</br>![Screenshot (328)](https://github.com/user-attachments/assets/3f0b8d63-99db-438a-93ec-b947b0c6e4b4)
+</br>![Screenshot 2024-11-26 141237](https://github.com/user-attachments/assets/cac47ef6-5135-4f7a-8657-1028fd928a8f)
+
 
 </br>2.Restart all services using the following commands:
 </br><i>docker-compose down
