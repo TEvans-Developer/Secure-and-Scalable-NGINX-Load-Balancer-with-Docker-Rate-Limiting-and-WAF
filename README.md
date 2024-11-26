@@ -20,7 +20,6 @@ This project demonstrates how to build a secure and scalable NGINX load balancer
 
 <h2>Prerequisites</h2>
 </br>1.Install Docker and Docker Compose on the Ubuntu VM:
-
 </br> <b>Commands:</b>
 </br> <i>sudo apt update 
 </br> sudo install -y docker.io-compose  
