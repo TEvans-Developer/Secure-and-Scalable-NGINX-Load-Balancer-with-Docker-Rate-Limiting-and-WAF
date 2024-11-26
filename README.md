@@ -16,4 +16,4 @@ This project demonstrates how to build a secure and scalable NGINX load balancer
 </br> Load Balancer: NGINX (VERSION)**
 </br> Container: Docker (VERSION)**
 
-</hr>
+<hr>
