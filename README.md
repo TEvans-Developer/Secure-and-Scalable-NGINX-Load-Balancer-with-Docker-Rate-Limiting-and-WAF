@@ -104,18 +104,23 @@ This project demonstrates how to build a secure and scalable NGINX load balancer
 
 <h2>Deploy Backend Servers</h2>
 </br>1. Create Docker Compose file for backend servers:
-</br> We will first want to cd into the (directory) and create a file via the nano command...
+</br> We will first want to cd into the ~/nginx-docker-loadbalancer directory and create a file via the nano command...
 </br><b>Commands:</b>
 </br><i>cd ..
 <br>nano docker-compose.yml</i>
 
 </br>You will then need edit the file so that it creates two Docker Composes file for backend servers, save then exit file...
 
-</br>***Note: Take note of proper indentation***
+</br>***Note: Take note of proper indentation and format of text, if ERROR occurs it may be do to this or version; should update "Docker Compose"***
 
-</br>![Screenshot (317)](https://github.com/user-attachments/assets/22b31620-85f5-4218-b73d-d2c4887cc490)
+</br>![Screenshot (321)](https://github.com/user-attachments/assets/c5d16f6a-7c6d-4a66-98a5-dd947c0e4e22)
 
-</br>docker-compose up
+</br>
+
+
+</br> We will now start the backend servers with the command...
+</br><b>Commands:</b>
+</br><i>docker-compose up -d </i>
 
 </br>
 </br>
