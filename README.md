@@ -118,18 +118,83 @@ This project demonstrates how to build a secure and scalable NGINX load balancer
 </br>
 
 
-</br> We will now start the backend servers with the command...
+</br> We will now start the backend servers and verify the backend servers are running with the commands...
 </br><b>Commands:</b>
-</br><i>docker-compose up -d </i>
+</br><i>docker-compose up -d 
+</br>curl http://<vm_IP>:8081
+</br>curl hhtp://<vm_IP>:8082</i>
 
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
+</br> the "docker-compose up -d" command tell docker the start the backend servers where the containers are, the -d flag stands for detached mode. This tells the containers to run in the background.
+
+</br>![Screenshot 2024-11-26 131728](https://github.com/user-attachments/assets/a074ba5a-9221-4006-83b9-320aec25e5ba)
 
 
+<h2>Configure NGINX as Load Balancer</h2>
+</br>1. Create and change into the directory for NGINX using the commands...
+</br><b>Commands:</b>
+</br><i> mkdir nginx && cd nginx</i>
+
+</br>![Screenshot (324)](https://github.com/user-attachments/assets/cd0759bd-9b21-458b-a40d-dbdd102d5e51)
+
+</br>2. Now write the NGINX configuration file as follows.
+</br><b>Commands:</b>
+</br><i>nano nginx.conf</i>
+
+</br>![Screenshot (325)](https://github.com/user-attachments/assets/cbb430a8-51e7-4726-a375-e3100c3946ed)
+
+</br>CONFIGURATION EXPLANATION
+</br>
+
+
+</br>3. Add WAF configuration with the following commands
+</br><b>Commands:</b>
+</br><i>mkdir -p /etc/nginx/modsec
+</br>nano /etc/nginx/modesec/main.conf</i>
+
+</br>To the main.conf, write the following OWASP CRS or other basic rules...
+</br><i>Include /etc/nginx/modsec/coreruleset/crs-setup.conf</i>
+</br><i>Include /etc/nginx/modsec/coreruleset/rules/*.conf</i>
+
+</br>![Screenshot 2024-11-26 134103](https://github.com/user-attachments/assets/ba3a1372-1723-4ae4-83a1-a21f4a3a3e39)
+
+</br>RULES EXPLANATION
+
+
+</br>4. Create a Dockerfile for NGINX with ModSecurity
+</br>from the ~/nginx-docker-loadbalancer directory, input the command
+</br><i>nano nginx/Dockerfile</i>
+
+</br> In the file write the following...
+</br><i>FROM nginx:latest
+</br>RUN apt-get update && \
+</br>    apt-get install -y libmodsecurity-dev && \
+</br>    apt-get clean
+</br>COPY nginx.conf /etc/nginx/nginx.conf
+</br>COPY modsec /etc/nginx/modsec
+
+</br>![Screenshot (326)](https://github.com/user-attachments/assets/5b4d0991-8592-478b-8f3a-d5ddaf078132)
+
+
+</br>5. We will now build the NGINX imagedocker. From the ~/nginx-docker-loadbalancer directory, input the command:
+</br><i>docker build -t nginx-loadbalancer ./nginx</i>
+
+</br>![Screenshot (327)](https://github.com/user-attachments/assets/b1a49f5d-3321-4115-bd1f-3c7d8fd6306a)
+
+
+<h2>Deploy NGINX load Balancer</h2>
+</br>1. Add NGINX to the Docker Compose file. Navigate to the docker-compose.yml, nano into the file and write the following:
+
+</br>![Screenshot (328)](https://github.com/user-attachments/assets/3f0b8d63-99db-438a-93ec-b947b0c6e4b4)
+
+</br>2.Restart all services using the following commands:
+</br><i>docker-compose down
+</br>docker-compose up -d</i>
+
+
+</br>3. Now access the load balancer by using the <i>curl http://<VM_IP></i> command to see the traffic being routed to the backend servers.
+
+</br>
+
+
+<h2>Testing</h2>
+</br>
