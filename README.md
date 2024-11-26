@@ -8,7 +8,7 @@ This project demonstrates how to build a secure and scalable NGINX load balancer
 
 </br>Docker will run the backend servers and NGINX as isolated services.
 
-</hr>
+<hr>
 
 <h2>Requirements:</h2>
 </br> Virtual Box
