@@ -68,13 +68,22 @@ This project demonstrates how to build a secure and scalable NGINX load balancer
 
 </br>3.Add a basic flask app:
 
-</br> In the same directory create the flask app as a file...
+</br> To create the flask app as a file use commands...
 </br><b>commands</b>
 </br><i> nano backend/app.py</i>
 
 </br>When nano editor opens type in..
+
 </br><i>from flask import Flask
 </br>app = Flask(__name__)
+
 </br>@app.route("/")
 </br>def home():
 </br>   return "Hello from Backend Server!"</i>
+
+</br> The above code import flask module. Creates an instance of the Flask class. The code will then assign the "/" symbol as the route for the app. A function called "home" will return the message "Hello from Back Server!" to signal we have reached the backend server later in the project.
+
+</br> Save the modified buffer and exit the file.
+
+</br>![Screenshot (314)](https://github.com/user-attachments/assets/a41a5e6d-4443-4fa8-b821-ba6dcb372ab3)
+
